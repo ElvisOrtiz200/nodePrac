@@ -1,1 +1,47 @@
-node_modules/
+# Node.js dependencies
+/node_modules/
+
+# Logs
+*.log
+logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependency directories
+/pnpm-lock.yaml
+/package-lock.json
+/yarn.lock
+
+# dotenv files (si usas dotenv para variables de entorno)
+.env
+.env.local
+.env.*.local
+
+# OS-specific files (Ej: macOS y Windows)
+.DS_Store
+Thumbs.db
+
+# Compiled files
+/dist
+/build
+*.tgz
+
+# Editor directories and files
+.vscode/
+.idea/
+
+# NPM & Yarn cache
+.npm/
+.yarn/
+
+# Temporary files
+*.swp
+*.swo
+
+# Test and coverage files
+/coverage
+/.nyc_output
+
+# Build directories or other custom directories
+public/
