@@ -1,11 +1,11 @@
 
-function holaMundo(req,res){
-    res.send('HOLAasdasd')
-    console.log("hola Mundo");
+function incident(req,res){
+    res.send('Incidente enviado')
+    
 }
 
 module.exports = {
-    holaMundo
-} 
+    incident
+};
 
 
