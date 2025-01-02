@@ -4,6 +4,8 @@ function incident(req,res){
     
 }
 
+
+
 module.exports = {
     incident
 };
