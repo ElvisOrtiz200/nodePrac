@@ -1,5 +1,5 @@
 
-const {Incident} = require('../models/Incident');
+const {Incident} = require('../models/ModelIncident');
 
 const IncidentCreate = async (req, res ) =>{
     try {
@@ -15,4 +15,4 @@ module.exports = {
     IncidentCreate
 };
 
-
+ 
