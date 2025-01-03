@@ -29,4 +29,4 @@ const IncidentSchema = Schema({
 
 const Incident = mongoose.model('Incident', IncidentSchema);
 
-module.exports = Incident;
+module.exports = {Incident};

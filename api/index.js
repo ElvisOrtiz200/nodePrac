@@ -1,13 +1,15 @@
 
 const express = require('express')
 
-const {incident} = require('../controllers/incident')
+const {IncidentCreate} = require('../controllers/Incident')
 const {solucion} = require('../controllers/solucion')
 
 const routes = express.Router();
 
 
-routes.get('/incidente',incident)
+
+
+routes.post('/Incidente',IncidentCreate)
 routes.get('/solucion',solucion)
 
 
