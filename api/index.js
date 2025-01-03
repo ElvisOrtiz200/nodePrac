@@ -1,7 +1,7 @@
 
 const express = require('express')
 
-const {IncidentCreate} = require('../controllers/Incident')
+const {IncidentCreate} = require('../controllers/incident')
 const {solucion} = require('../controllers/solucion')
 
 const routes = express.Router();
