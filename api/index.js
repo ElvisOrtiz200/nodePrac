@@ -17,6 +17,4 @@ routes.get('/solucion',solucion)
 
  
 
-module.exports = {
-    routes
-}
+module.exports = routes;

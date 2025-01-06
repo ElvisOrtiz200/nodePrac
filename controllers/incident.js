@@ -51,7 +51,7 @@ const updateIncident = async (req, res) =>{
 const deleteIncident = async (req, res) => {
     try {
         const { id } = req.params; // Obtener el ID desde los parámetros de la URL
-
+ 
         // Eliminar el incidente por su ID
         const incidentDelete = await Incident.findByIdAndDelete(id);
 

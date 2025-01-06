@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
-
+ 
 const IncidentSchema = Schema({
     title: {
         type: String,
