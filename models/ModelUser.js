@@ -11,6 +11,10 @@ const UsuarioSchema = new mongoose.Schema({
         type : String,
         required : true
     },
+    rol : {
+        type: String,
+        required : true
+    },
     estado : {
         type : String,
         
