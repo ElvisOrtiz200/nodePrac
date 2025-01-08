@@ -49,43 +49,46 @@ const register = async (req, res) => {
   };
   
 
-
-const login = async (req, res)=>{
-  
+  const login = async (req, res) => {
     try {
-        const {username, contra } = req.body;
-        console.log(username,contra);
+        const { username, contra } = req.body;
+        console.log('Datos recibidos del cliente:', username, contra);
+
         if (!username || !contra) {
+            console.log('Faltan credenciales');
             return res.status(400).json({ message: 'Faltan credenciales' });
         }
 
-        const usuario  = await Usuario.findOne({username});
-        
+        const usuario = await Usuario.findOne({ username });
+        console.log('Usuario encontrado en la base de datos:', usuario);
+
         if (!usuario) {
+            console.log('Usuario no encontrado');
             return res.status(404).json({ message: 'Usuario no encontrado' });
         }
 
-    
-
         const esValida = await bcrypt.compare(contra, usuario.contra);
-        
+        console.log('¿Contraseña válida?', esValida);
+
         if (!esValida) {
-          return res.status(401).json({ message: 'Contraseña incorrecta' });
+            console.log('Contraseña incorrecta');
+            return res.status(401).json({ message: 'Contraseña incorrecta' });
         }
-        
-                 
+
         const token = jwt.sign(
             { id: usuario._id, username: usuario.username },
             SECRET_KEY,
             { expiresIn: '1m' }
         );
-     
+
+        console.log('Token generado:', token);
+
         res.status(200).json({ message: 'Login exitoso', token, usuario });
-      
     } catch (error) {
-        res.status(404).json({message: 'Error al iniciar sesion',error:  error.message})
+        console.error('Error en el servidor:', error.message);
+        res.status(500).json({ message: 'Error al iniciar sesión', error: error.message });
     }
-}
+};
 
 module.exports = {
     login,
