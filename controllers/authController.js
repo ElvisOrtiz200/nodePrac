@@ -54,6 +54,7 @@ const login = async (req, res)=>{
   
     try {
         const {username, contra } = req.body;
+        console.log(username,contra);
         if (!username || !contra) {
             return res.status(400).json({ message: 'Faltan credenciales' });
         }
