@@ -58,7 +58,8 @@ const register = async (req, res) => {
             console.log('Faltan credenciales');
             return res.status(400).json({ message: 'Faltan credenciales' });
         }
-
+        const usuarios = await Usuario.find();
+        console.log(usuarios);
         const usuario = await Usuario.findOne({ username });
         console.log('Usuario encontrado en la base de datos:', usuario);
 
