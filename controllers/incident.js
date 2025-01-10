@@ -20,6 +20,25 @@ const getIncident = async (req, res) => {
     }
 }
 
+const getIncidentUser = async (req, res) => {
+    try {
+        const { user } = req.params; // Obtener el usuario desde los parámetros de la consulta (query string)
+        console.log(req.params); // Esto debería mostrar todos los parámetros de consulta en la consola
+
+        let incidents;
+        if (user) {
+            // Si se proporciona un usuario en la consulta, filtra por el campo "user"
+            incidents = await Incident.find({ user }).sort({ createdAt: 1 });
+        } else {
+            // Si no se proporciona un usuario, obtiene todos los incidentes
+            incidents = await Incident.find().sort({ createdAt: 1 });
+        }
+
+        res.status(200).json({ message: 'Incidentes obtenidos', data: incidents });
+    } catch (error) {
+        res.status(400).json({ message: 'Error', error });
+    }
+};
 
 const getIncidentbyID = async(req, res) => {
     try {
@@ -74,7 +93,8 @@ module.exports = {
     getIncident,
     getIncidentbyID,
     updateIncident,
-    deleteIncident
+    deleteIncident,
+    getIncidentUser
 };
 
  

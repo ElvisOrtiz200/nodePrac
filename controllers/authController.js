@@ -69,7 +69,6 @@ const register = async (req, res) => {
         }
 
         const esValida = await bcrypt.compare(contra, usuario.contra);
-        console.log('¿Contraseña válida?', esValida);
 
         if (!esValida) {
             console.log('Contraseña incorrecta');
@@ -79,7 +78,7 @@ const register = async (req, res) => {
         const token = jwt.sign(
             { id: usuario._id, username: usuario.username },
             SECRET_KEY,
-            { expiresIn: '1m' }
+            { expiresIn: '1h' }
         );
 
         console.log('Token generado:', token);
